@@ -44,7 +44,7 @@ async function run() {
         preReleaseTag ?? undefined,
     )
     if (!newVersion) {
-        throw new Error('could not bump version ' + version + version["version"])
+        throw new Error('could not bump version here ' + version + version["version"])
     }
     console.log('writing new version file')
     fs.writeFileSync(versionPath, newVersion, 'utf8')
