@@ -34,7 +34,7 @@ async function run() {
         throw new Error("version file not found")
     }
     const prefix = (core.getInput('prefix') || '').trim()
-    const version = fs.readFileSync(versionPath, 'utf8').version.toString().trim()
+    const version = fs.readFileSync(versionPath, 'utf8')["version"].toString().trim()
     console.log(fs.readFileSync(versionPath, 'utf8'))
     console.log(version)
     const preReleaseTag = core.getInput('prerelease_tag') || ''
@@ -44,7 +44,7 @@ async function run() {
         preReleaseTag ?? undefined,
     )
     if (!newVersion) {
-        throw new Error('could not bump version ' + version)
+        throw new Error('could not bump version ' + version + version["version"])
     }
     console.log('writing new version file')
     fs.writeFileSync(versionPath, newVersion, 'utf8')
