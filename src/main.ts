@@ -13,6 +13,7 @@ import { inc } from 'semver'
 import { createAnnotations } from './createAnnotation'
 
 async function run() {
+    console.log("HERE");
     const githubToken =
         core.getInput('github_token') || process.env.GITHUB_TOKEN
     const ignore =
@@ -34,6 +35,7 @@ async function run() {
     }
     const prefix = (core.getInput('prefix') || '').trim()
     const version = fs.readFileSync(versionPath, 'utf8').version.toString().trim()
+    console.log(fs.readFileSync(versionPath, 'utf8'))
     console.log(version)
     const preReleaseTag = core.getInput('prerelease_tag') || ''
     const newVersion = inc(
