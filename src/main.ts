@@ -29,10 +29,11 @@ async function run() {
         'master'
     const versionPath = core.getInput('version_file') || 'VERSION'
     if (!fs.existsSync(versionPath)) {
-        fs.writeFileSync(versionPath, '0.0.0', 'utf8')
+//         fs.writeFileSync(versionPath, '0.0.0', 'utf8')
+        throw new Error("version file not found")
     }
     const prefix = (core.getInput('prefix') || '').trim()
-    const version = fs.readFileSync(versionPath, 'utf8').toString().trim()
+    const version = fs.readFileSync(versionPath, 'utf8').version.toString().trim()
     const preReleaseTag = core.getInput('prerelease_tag') || ''
     const newVersion = inc(
         version,
