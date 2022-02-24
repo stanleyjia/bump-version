@@ -34,6 +34,7 @@ async function run() {
     }
     const prefix = (core.getInput('prefix') || '').trim()
     const version = fs.readFileSync(versionPath, 'utf8').version.toString().trim()
+    console.log(version)
     const preReleaseTag = core.getInput('prerelease_tag') || ''
     const newVersion = inc(
         version,
