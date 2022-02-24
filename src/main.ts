@@ -13,7 +13,7 @@ import { inc } from 'semver'
 import { createAnnotations } from './createAnnotation'
 
 async function run() {
-    console.log("HERE");
+    core.debug('Inside run');
     const githubToken =
         core.getInput('github_token') || process.env.GITHUB_TOKEN
     const ignore =
